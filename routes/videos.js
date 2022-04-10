@@ -19,3 +19,5 @@ router
 
 router
     .delete(":id/comments/:commentId", deleteComment)
+
+module.exports = router;
