@@ -1,4 +1,5 @@
 const { videoRead, videoWrite } = require('../utils/utils');
+const { v4: uuidv4 } = require('uuid');
 
 exports.getAllVideos = (req, res) => {
     const videoData = videoRead();
@@ -36,7 +37,7 @@ exports.postNewVideo = (req, res) => {
     const reducedNewVideo = {
         id: uuidv4(),
         title: req.body.title,
-        channel: "BrainStation Man",
+        channel: "Nigel D'Souza",
         image: "http://localhost:8080/images/image9.jpg"
     }
     videoData.push(newVideo);
