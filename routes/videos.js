@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { v4: uuidv4 } = require('uuid');
 const { getAllVideos, postNewVideo, getSingleVideo, postNewComment, putLike, deleteComment } = require('../controllers/videoController');
 
 router
@@ -18,6 +17,6 @@ router
     .put("/:id/likes", putLike)
 
 router
-    .delete(":id/comments/:commentId", deleteComment)
+    .delete("/:id/comments/:commentId", deleteComment)
 
 module.exports = router;
