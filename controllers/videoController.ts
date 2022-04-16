@@ -26,7 +26,7 @@ export const postNewVideo = (req: Request, res: Response) => {
     const newVideo = {
         id: uuidv4(),
         title: req.body.title,
-        channel: "BrainStation Man",
+        channel: "Nigel D'Souza",
         image: "http://localhost:8080/images/image9.jpeg",
         description: req.body.description,
         views: "0",
