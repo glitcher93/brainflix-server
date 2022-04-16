@@ -1,6 +1,7 @@
 export interface Video {
     id: string
     name: string
+    title: string
     image: string
     channel: string
     description: string
