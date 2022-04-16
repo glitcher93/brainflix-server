@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import { getAllVideos, postNewVideo, getSingleVideo, postNewComment, putLike, deleteComment } from '../controllers/videoController';
+
 const router = express.Router();
-const { getAllVideos, postNewVideo, getSingleVideo, postNewComment, putLike, deleteComment } = require('../controllers/videoController');
 
 router
     .route("/")
@@ -19,4 +20,4 @@ router
 router
     .delete("/:id/comments/:commentId", deleteComment)
 
-module.exports = router;
+export default router;
