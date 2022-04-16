@@ -1,9 +1,11 @@
-const { videoRead, videoWrite } = require('../utils/utils');
-const { v4: uuidv4 } = require('uuid');
+import { videoRead, videoWrite } from '../utils/utils';
+import { v4 as uuidv4 } from 'uuid';
+import { Request, Response } from 'express';
+import { Video, Comment } from '../utils/interfaces';
 
-exports.getAllVideos = (req, res) => {
+export const getAllVideos = (req: Request, res: Response) => {
     const videoData = videoRead();
-    const reducedVideoData = videoData.map(video => {
+    const reducedVideoData = videoData.map((video: Video) => {
         return {
         id: video.id,
         title: video.title,
@@ -14,7 +16,7 @@ exports.getAllVideos = (req, res) => {
     res.json(reducedVideoData);
 }
 
-exports.postNewVideo = (req, res) => {
+export const postNewVideo = (req: Request, res: Response) => {
     const videoData = videoRead();
     if (!req.body.title || !req.body.description) {
         return res.status(400).json({
@@ -45,10 +47,10 @@ exports.postNewVideo = (req, res) => {
     res.status(201).json(reducedNewVideo);
 }
 
-exports.getSingleVideo = (req, res) => {
+export const getSingleVideo = (req: Request, res: Response) => {
     const videoData = videoRead();
     const videoId = req.params.id;
-    const foundVideo = videoData.find(video => video.id === videoId);
+    const foundVideo = videoData.find((video: Video) => video.id === videoId);
     if (!foundVideo) {
         return res.status(404).json({
             error: "Video not found"
@@ -57,7 +59,7 @@ exports.getSingleVideo = (req, res) => {
     res.json(foundVideo);
 }
 
-exports.postNewComment = (req, res) => {
+export const postNewComment = (req: Request, res: Response) => {
     const videoData = videoRead();
     const newComment = {
         id: uuidv4(),
@@ -67,7 +69,7 @@ exports.postNewComment = (req, res) => {
         timestamp: Date.now()
     }
     const videoId = req.params.id;
-    const foundVideo = videoData.find(video => video.id === videoId);
+    const foundVideo = videoData.find((video: Video) => video.id === videoId);
     if (!foundVideo) {
         return res.status(404).json({
             error: "Video not found"
@@ -83,10 +85,10 @@ exports.postNewComment = (req, res) => {
     res.status(201).json(newComment);
 }
 
-exports.putLike = (req, res) => {
+export const putLike = (req: Request, res: Response) => {
     const videoData = videoRead();
     const videoId = req.params.id;
-    const foundVideo = videoData.find(video => video.id === videoId);
+    const foundVideo = videoData.find((video: Video) => video.id === videoId);
     if(!foundVideo) {
         return res.status(404).json({
             error: "Video not found"
@@ -97,13 +99,13 @@ exports.putLike = (req, res) => {
     res.status(200).json(foundVideo);
 }
 
-exports.deleteComment = (req, res) => {
+export const deleteComment = (req: Request, res: Response) => {
     const videoData = videoRead();
     const videoId = req.params.id;
-    const foundVideo = videoData.find(video => video.id === videoId);
+    const foundVideo = videoData.find((video: Video) => video.id === videoId);
     const commentId = req.params.commentId;
     const foundVideoComments = foundVideo.comments;
-    const foundComment = foundVideoComments.find(comment => comment.id === commentId);
+    const foundComment = foundVideoComments.find((comment: Comment) => comment.id === commentId);
     if(!foundVideo) {
         return res.status(404).json({
             error: "Video not found"
