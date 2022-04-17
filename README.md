@@ -1,30 +1,25 @@
-# Brainflix Sprint 3
+# Brainflix
 
-Hello welcome to Sprint 3 of my BrainFlix project
+Brainflix was a project that highly resembled Youtube's UI and basic functionality. The project was initially done over three one week sprints in order to understand the basics of React, State, React Router, React lifecycles, Node.js, and Express. The user is able to browse through pages of videos to watch through dynamic routing. The user is also able to upload videos, comment on videos, and delete comments from a video. Since first doing this project, I switched the project from using vanilla JavaScript to TypeScript using ES6 modules.
 
-## Overview
+## Features To Come
 
-### Diving Deeper Sprint 1:
+- Database Implementation
+- Image Uploading using Multer
+- User Authentication & Authorization
 
-- Added dynamic date stamp
+## Tech Stack - Front End
 
-### Diving Deeper Sprint 2:
+- Node.js
+- Express.js
+- TypeScript
+- Dotenv
+- Cors
+- UUID
+- Concurrently
 
-- Posting and Deleting Comments
+## Setup
 
-### Diving Deeper Sprint 3:
-
-- *NEW* Created comment Post and Delete Endpoints
-- *NEW* Created Put Endpoint for Likes
-
-## Feedback Checklist:
-
-### Sprint 1:
-- Use specific naming for onClick functions (handleOnClick, handleOnSubmit) - *DONE*
-- Change sass variables relating to color specific to what they're being used for - *DONE*
-- Use a global partials file to handle general styles - *DONE*
-
-### Sprint 2: 
-- Add focus styles to show error state on forms - *DONE*
-- Make tablet and mobile styles span the entire width of the page - *DONE*
-- Improve user experience by scrolling to the top when user clicks a new video - *DONE*
+- Clone repository: `git clone <URL>`
+- Install node modules: `npm install`
+- Run project `npm run dev`
