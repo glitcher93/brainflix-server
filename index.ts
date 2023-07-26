@@ -11,7 +11,7 @@ const app: Express = express();
 const { PORT } = process.env || 8082;
 
 app.use(cors());
-app.use(jsonServer.router(path.join(__dirname, 'data/video-details.json')));
+app.use(jsonServer.router(path.join(__dirname, '../data/video-details.json')));
 app.use(express.json());
 app.use(express.static('public'))
 
